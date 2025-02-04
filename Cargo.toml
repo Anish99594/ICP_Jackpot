@@ -1,0 +1,35 @@
+[package]
+name = "lottery"
+version = "0.1.0"
+edition = "2021"  # Use the latest stable edition supported by the Calimero SDK.
+
+[lib]
+crate-type = [
+    "cdylib",
+] # This ensures the library is built as a dynamic contract library.
+
+[dependencies]
+calimero-sdk = { git = "https://github.com/calimero-network/core", branch = "master" }
+calimero-storage = { git = "https://github.com/calimero-network/core", branch = "master" }
+rand = "0.8"
+sha2 = "0.10"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hex = "0.4"
+ic-cdk = "0.7.0"
+ic-cdk-macros = "0.7.0"
+borsh = "0.9.3"                                                                            # Ensure this matches the version used by calimero-sdk
+borsh-derive = "0.9.3"
+thiserror = "1.0.40"                                                                       # For custom error handling
+
+[dev-dependencies]
+ic-cdk = "0.7.0" # For testing IC canisters
+
+[profile.app-release]
+inherits = "release"   # Inherit default release profile
+codegen-units = 1      # Optimize for single codegen unit
+opt-level = "z"        # Maximize size optimization
+lto = true             # Link-time optimization for smaller binaries
+debug = false          # Disable debugging symbols
+panic = "abort"        # Use abort for panics to reduce binary size
+overflow-checks = true # Keep overflow checks
