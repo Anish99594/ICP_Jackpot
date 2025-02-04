@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css'; // Regular CSS for styling
 
 function LotteryApp() {
-    const [lotteryState, setLotteryState] = useState(null);
+    const [lotteryState] = useState(null);
     const [ticketId, setTicketId] = useState('');
     const [winner, setWinner] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -58,7 +58,7 @@ function LotteryApp() {
         <div className="lottery-container">
             <h1>Lottery DApp</h1>
             {loading ? <p>Loading...</p> : null}
-            <p>Lottery State: {lotteryState ? lotteryState.status : 'Loading...'}</p>
+            <p>Lottery State: {lotteryState ? lotteryState : 'Loading...'}</p>
             <button onClick={purchaseTicket} disabled={loading}>Buy Ticket</button>
             <button onClick={closeLottery} disabled={loading}>Close Lottery</button>
             <button onClick={claimPrize} disabled={loading}>Claim Prize</button>
