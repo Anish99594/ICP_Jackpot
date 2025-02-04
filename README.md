@@ -4,7 +4,7 @@
 
 Here is a preview of the project's front page:
 
-![LotteryX](lottery/app/lottery-frontend/src/assets/frontimageICPjackpot.png)
+![LotteryX](/Users/anish/Documents/calimero_icp1/lottery/app/lottery-frontend/src/assets/frontimageICPjackpot.png)
 
 ## Introduction
 
